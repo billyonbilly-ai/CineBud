@@ -1,4 +1,3 @@
-# bot/handlers/start.py
 from telegram import Update
 from telegram.ext import ContextTypes
 from db import queries
@@ -16,8 +15,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if existing_genres:
         genre_names = ", ".join(g["genre_name"] for g in existing_genres)
         await update.message.reply_text(
-            f"Welcome back! 🎬 You're already set up with: {genre_names}.\n\n"
-            f"Use /mysubs to manage your tracked titles or /search to add more."
+           f"Welcome back! 🎬 You're already set up with: {genre_names}.\n\n"
+           f"Use /mysubs to manage your tracked titles or /search to find a specific title to track."
         )
         return
 
