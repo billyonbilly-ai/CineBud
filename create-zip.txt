@@ -1,0 +1,5 @@
+tar -a -c --exclude='*__pycache__*' --exclude='venv' -f archive.zip bot db notifications scheduler tmdb config.py Dockerfile requirements.txt
+
+// This creates a new archive.zip folder with any new change for you to upload in justrunmy.app(where the server is hosted) under file management.
+
+//Just run this command in terminal in the root folder.
