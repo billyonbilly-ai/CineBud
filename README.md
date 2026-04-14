@@ -5,32 +5,37 @@
 ---
 
 ## What It Does
-* **Genre Tracking:** On first launch, users select their favorite genres. CineBud keeps them updated on broad news within those categories.
-* **Specific Title Tracking:** Users can opt to track specific movies or TV shows for precise updates.
-* **AI-Powered Notifications:** Instead of robotic alerts, CineBud uses Gemini 2.0 Flash to rewrite raw TMDB data into enthusiastic, friendly messages.
-* **Smart Updates:** Monitors for trailers, new episodes, release dates, and status changes.
+
+- **Genre Tracking:** On first launch, users select their favorite genres. CineBud keeps them updated on broad news within those categories.
+- **Specific Title Tracking:** Users can opt to track specific movies or TV shows for precise updates.
+- **AI-Powered Notifications:** Instead of robotic alerts, CineBud uses Gemini 2.0 Flash to rewrite raw TMDB data into enthusiastic, friendly messages.
+- **Smart Updates:** Monitors for trailers, new episodes, release dates, and status changes.
 
 ---
 
 ## Tech Stack
-* **Language:** Python 3.10+
-* **Bot Framework:** `python-telegram-bot`
-* **AI Engine:** Google Gemini 2.0 Flash
-* **Data Source:** TMDB (The Movie Database) API
-* **Database:** SQLite (local persistence)
-* **HTTP Client:** `httpx` (Asynchronous requests)
+
+- **Language:** Python 3.10+
+- **Bot Framework:** `python-telegram-bot`
+- **AI Engine:** Google Gemini 2.0 Flash
+- **Data Source:** TMDB (The Movie Database) API
+- **Database:** SQLite (local persistence)
+- **HTTP Client:** `httpx` (Asynchronous requests)
 
 ---
 
 ## Setup & Installation
 
 ### 1. Prerequisites
+
 You will need to obtain the following keys:
-* **Telegram Bot Token:** Create a bot via [@BotFather](https://t.me/botfather).
-* **TMDB API Key:** Register at [themoviedb.org](https://www.themoviedb.org/documentation/api).
-* **Gemini API Key:** Obtain one from [Google AI Studio](https://aistudio.google.com/).
+
+- **Telegram Bot Token:** Create a bot via [@BotFather](https://t.me/botfather).
+- **TMDB API Key:** Register at [themoviedb.org](https://www.themoviedb.org/documentation/api).
+- **Gemini API Key:** Obtain one from [Google AI Studio](https://aistudio.google.com/).
 
 ### 2. Local Setup
+
 1.  **Clone the Repository:**
     ```bash
     git clone https://github.com/billyonbilly-ai/CineBud.git
@@ -62,12 +67,15 @@ You will need to obtain the following keys:
 This project is optimized for deployment on platforms like **JustRunMy.App**.
 
 ### Step 1: Prepare the Archive
-To ensure a clean deployment without local junk, use `tar` to create your zip:
+
+To ensure a clean deployment without local junk, use `tar` to create your zip. Run this in your project root to create an archive.zip file:
+
 ```bash
 tar -a -c --exclude='*__pycache__*' --exclude='venv' --exclude='cinebud.db' -f archive.zip bot db notifications scheduler tmdb config.py Dockerfile requirements.txt
 ```
 
 ### Step 2: Configure the Dashboard
+
 1.  **Upload:** Go to the **Files** tab and upload `archive.zip` using the **Upload Archive** button.
 2.  **Environment Variables:** Under **Settings**, add your `BOT_TOKEN`, `TMDB_API_KEY`, and `GEMINI_API_KEY`. Also add `PYTHONUNBUFFERED=1` for real-time logs.
 3.  **Run Command:** Set the command to:
@@ -79,6 +87,7 @@ tar -a -c --exclude='*__pycache__*' --exclude='venv' --exclude='cinebud.db' -f a
 ---
 
 ## Project Structure
+
 ```text
 cinebud/
 ├── bot/              # Core bot logic and handlers
@@ -94,7 +103,9 @@ cinebud/
 ---
 
 ## How the AI Works
+
 CineBud uses a specialized `SYSTEM_PROMPT` to maintain its personality. It takes raw event data (e.g., "Trailer dropped") and transforms it into:
-> *"Hey Billy! You won't believe it, but the first official trailer for Avengers: Doomsday just dropped! 🎬 I'm so hyped, you have to see this!"*
+
+> _"Hey Billy! You won't believe it, but the first official trailer for Avengers: Doomsday just dropped! 🎬 I'm so hyped, you have to see this!"_
 
 ![photo_2026-04-14_12-47-34](https://github.com/user-attachments/assets/0f41de0e-ae7d-4ecf-98bb-8996024eb978)
