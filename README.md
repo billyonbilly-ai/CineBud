@@ -74,15 +74,15 @@ To ensure a clean deployment without local junk, use `tar` to create your zip. R
 tar -a -c --exclude='*__pycache__*' --exclude='venv' --exclude='cinebud.db' -f archive.zip bot db notifications scheduler tmdb config.py Dockerfile requirements.txt
 ```
 
-### Step 2: Configure the Dashboard
+### Step 2: Upload archive.zip to JustRunMy.App
 
-1.  **Upload:** Go to the **Files** tab and upload `archive.zip` using the **Upload Archive** button.
-2.  **Environment Variables:** Under **Settings**, add your `BOT_TOKEN`, `TMDB_API_KEY`, and `GEMINI_API_KEY`. Also add `PYTHONUNBUFFERED=1` for real-time logs.
-3.  **Run Command:** Set the command to:
+1.  **Create new application:** Sign in, create a new application then upload files using the **Upload Archive** button.
+2.  **Environment Variables:** You will be prompted to add your `BOT_TOKEN`, `TMDB_API_KEY`, and `GEMINI_API_KEY`.
+3.  **Run Command:** Under settings, set the command to:
     ```bash
     python -m bot.main
     ```
-4.  **Persistence:** Add a **Volume Mapping** to `/app` (or a specific `/data` folder) to ensure the `cinebud.db` SQLite file is not lost when the bot restarts.
+4.  **Persistence:** Under settings add a **Volume Mapping** to `/app` to ensure the `cinebud.db` SQLite file is not lost when the bot restarts.
 
 ---
 
