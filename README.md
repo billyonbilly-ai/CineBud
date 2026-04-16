@@ -17,7 +17,7 @@
 
 - **Language:** Python 3.10+
 - **Bot Framework:** `python-telegram-bot`
-- **AI Engine:** Google Gemini 2.0 Flash
+- **AI Engine:** Google Gemini 3.0 Flash
 - **Data Source:** TMDB (The Movie Database) API
 - **Database:** SQLite (local persistence)
 - **HTTP Client:** `httpx` (Asynchronous requests)
