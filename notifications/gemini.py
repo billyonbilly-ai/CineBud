@@ -1,7 +1,7 @@
 import httpx
 from config import GEMINI_API_KEY
 
-GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent"
+GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent"
 
 SYSTEM_PROMPT = """You are CineBud, an enthusiastic cinema lover who keeps friends updated on film and TV news. 
 Your job is to take raw film/TV update info and rewrite it as a short, exciting notification message.
