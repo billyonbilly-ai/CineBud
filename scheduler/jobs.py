@@ -2,7 +2,7 @@ import logging
 from db import queries
 from tmdb.client import get_movie_details, get_tv_details, discover_by_genre, GENRES
 from notifications.sender import send_notification
-from notifications.gemini import craft_notification_safe
+from notifications.groq import craft_notification_safe
 
 logger = logging.getLogger(__name__)
 
@@ -88,7 +88,7 @@ async def _process_title(bot, tmdb_id: int, media_type: str, title: str, user_id
                 if queries.has_been_notified(user_id, tmdb_id, media_type, event["event_type"]):
                     continue
 
-                # Get user's first name for Gemini
+                # Get user's first name
                 conn = queries.get_connection()
                 row = conn.execute(
                     "SELECT first_name FROM users WHERE user_id = ?", (user_id,)
